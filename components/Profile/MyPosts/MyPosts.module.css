@@ -1,0 +1,12 @@
+.item {
+    color: palegreen;
+}
+
+button {
+    border-radius: 10px;
+}
+
+textarea {
+    border-radius: 5px;
+    margin: 1%;
+}
