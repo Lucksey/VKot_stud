@@ -1,14 +1,8 @@
-.content {
-    grid-area: c;
-    background-color: dodgerblue;
-    border-radius: 20px;
-}
-
 .big_banner {
     width: 1000px;
     height: 200px;
     margin: 10px;
-    border-radius: 50px;
+    border-radius: 20px;
 
 }
 
@@ -16,5 +10,5 @@
     width: 200px;
     height: 150px;
     padding: 1px 10px;
-    border-radius: 50px;
+    border-radius: 30px;
 }
