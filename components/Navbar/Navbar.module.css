@@ -16,3 +16,7 @@
 .item a:focus {
     color: gold;
 }
+
+.item a:active {
+    color: deeppink;
+}
