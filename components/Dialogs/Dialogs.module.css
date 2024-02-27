@@ -7,8 +7,8 @@
     padding: 10px;
 }
 
-.dialogsItems .active {
-    color: goldenrod;
+.dialogsItems .active a {
+    color: greenyellow;
 
 }
 
@@ -24,10 +24,6 @@
 .dialog a:focus {
     color: gold;
 
-}
-
-.dialog a:active {
-    color: palegreen;
 }
 
 .messages {

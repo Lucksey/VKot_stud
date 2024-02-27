@@ -10,3 +10,9 @@ textarea {
     border-radius: 5px;
     margin: 1%;
 }
+.postsBlock {
+    padding: 10px;
+}
+.posts {
+    margin-top: 10px;
+}

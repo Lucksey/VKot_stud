@@ -3,6 +3,7 @@
     background-color: sandybrown;
     text-align: right;
     padding: 20px;
+    border-radius: 20px;
 
 }
 
@@ -18,5 +19,5 @@
 }
 
 .item a:active {
-    color: deeppink;
+    color: #1447ff;
 }
