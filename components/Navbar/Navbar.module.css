@@ -1,18 +1,18 @@
 .nav {
-	grid-area: n;
-	background-color: sandybrown;
-	text-align: right;
-	padding: 20px;
+    grid-area: n;
+    background-color: sandybrown;
+    text-align: right;
+    padding: 20px;
 
 }
 
 .item a {
-	color: green;
-	text-decoration: none;
+    color: green;
+    text-decoration: none;
 
 }
 
 .item a:active,
 .item a:focus {
-	color: gold;
+    color: gold;
 }
