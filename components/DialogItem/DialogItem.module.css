@@ -1,0 +1,18 @@
+.dialogsItems {
+    padding: 10px;
+}
+
+.dialogsItems .active a {
+    color: greenyellow;
+
+}
+
+.dialog a {
+    text-decoration: none;
+}
+
+.dialog a:active,
+.dialog a:focus {
+    color: gold;
+
+}
