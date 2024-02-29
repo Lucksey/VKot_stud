@@ -1,7 +1,6 @@
 import React from "react";
-import s from "./DialogItem.module.css";
+import s from "../Dialogs.module.css";
 import {NavLink} from "react-router-dom";
-import {getKeyEventProps} from "@testing-library/user-event/dist/keyboard/getEventProps";
 
 const DialogItem = (props) => {
     return (

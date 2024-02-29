@@ -1,9 +1,7 @@
 import React from "react";
 import s from "./Dialogs.module.css";
-import {NavLink} from "react-router-dom";
-import {getKeyEventProps} from "@testing-library/user-event/dist/keyboard/getEventProps";
-import Message from "../Message/Message";
-import DialogItem from "../DialogItem/DialogItem"
+import Message from "./Message/Message";
+import DialogItem from "./DialogItem/DialogItem"
 
 const Dialogs = (props) => {
 
