@@ -1,0 +1,24 @@
+.site {
+    grid-area: s;
+    background-color: lightslategray;
+    text-align: center;
+    padding: 20px;
+    border-radius: 20px;
+
+}
+/*
+
+.item a {
+    color: green;
+    text-decoration: none;
+
+}
+
+.item a:active,
+.item a:focus {
+    color: gold;
+}
+
+.item a:active {
+    color: #1447ff;
+}*/

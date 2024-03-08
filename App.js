@@ -8,6 +8,7 @@ import News from "./components/News/News";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
+import Sitebar from "./components/Sitebar/Sitebar";
 
 const App = (props) => {
 
@@ -25,6 +26,7 @@ const App = (props) => {
                         <Route path='/settings/*' element={<Settings/>}/>
                     </Routes>
                 </div>
+                <Sitebar/>
             </div>
         </BrowserRouter>
     )
