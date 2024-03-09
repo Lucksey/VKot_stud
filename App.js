@@ -13,22 +13,23 @@ import Sitebar from "./components/Sitebar/Sitebar";
 const App = (props) => {
 
     return (
-            <div className='app-wrapper'>
-                <Header/>
-                <Navbar/>
-                <div className='app-wrapper-content'>
-                    <Routes>
-                        <Route path="/profile/*" element={<Profile
-                            state={props.state.profilePage}
-                            addPost={props.addPost}/>}/>
-                        <Route path="/dialogs/*" element={<Dialogs state={props.state.dialogsPage}/>}/>
-                        <Route path='/news/*' element={<News/>}/>
-                        <Route path='/music/*' element={<Music/>}/>
-                        <Route path='/settings/*' element={<Settings/>}/>
-                    </Routes>
-                </div>
-                <Sitebar/>
+        <div className='app-wrapper'>
+            <Header/>
+            <Navbar/>
+            <div className='app-wrapper-content'>
+                <Routes>
+                    <Route path="/profile/*" element={<Profile
+                        state={props.state.profilePage}
+                        addPost={props.addPost}/>}/>
+                    <Route path="/dialogs/*" element={<Dialogs
+                        state={props.state.dialogsPage}/>}/>
+                    <Route path='/news/*' element={<News/>}/>
+                    <Route path='/music/*' element={<Music/>}/>
+                    <Route path='/settings/*' element={<Settings/>}/>
+                </Routes>
             </div>
+            <Sitebar/>
+        </div>
     )
 }
 
