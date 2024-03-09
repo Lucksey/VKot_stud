@@ -6,7 +6,15 @@ import DialogItem from "./DialogItem/DialogItem"
 const Dialogs = (props) => {
 
     let dialogsElements = props.state.dialogs.map(d => <DialogItem name={d.name} id={d.id}/>);
+
     let messagesElements = props.state.messages.map(m => <Message message={m.message}/>);
+
+    let newMessageElement = React.createRef();
+
+    let sendMessage = () => {
+        let text = newMessageElement.current.value;
+        alert(text);
+    }
 
     return (
         <div className={s.dialogs}>
@@ -14,7 +22,10 @@ const Dialogs = (props) => {
                 {dialogsElements}
             </div>
             <div className={s.messages}>
-                {messagesElements}
+                <div>ава пользователя и сообщения по разные стороны диалога</div>
+                    {messagesElements}
+                <textarea ref={newMessageElement}></textarea> <br/>
+                <button onClick={sendMessage}>Send</button>
             </div>
         </div>
     )

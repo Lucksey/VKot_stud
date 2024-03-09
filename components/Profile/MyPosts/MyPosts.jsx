@@ -9,9 +9,8 @@ const MyPosts = (props) => {
     let newPostElement = React.createRef();
 // лезем в DOM элементы (см. 31 и 100 урок)
     let addPost = () => {
-
     let text = newPostElement.current.value;
-        alert(text);
+        props.addPost(text);
     }
 
     return (<div className={s.postsBlock}>
