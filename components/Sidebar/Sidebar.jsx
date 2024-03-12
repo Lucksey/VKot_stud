@@ -1,13 +1,12 @@
 import React from "react";
-import s from "./Sitebar.module.css";
+import s from "./Sidebar.module.css";
 
-const Sitebar = (props) => {
+const Sidebar = (props) => {
 
     let addAlert = () => {
         alert('samuraiJS.com');
     }
 
-    // лезем в DOM элементы (см. 31 и 100 урок)
     let addAlertTextArea = () => {
         let text = document.getElementById('new-search').value;
         alert(text);
@@ -30,4 +29,4 @@ const Sitebar = (props) => {
     </nav>
 }
 
-export default Sitebar;
+export default Sidebar;

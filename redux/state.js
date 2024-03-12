@@ -1,4 +1,6 @@
-import {rerenderEntireTree} from "../render";
+let rerenderEntireTree = () => {
+
+}
 
 let state = {
     profilePage: {
@@ -26,9 +28,9 @@ let state = {
     sidebat: {}
 }
 
-/*window.state = state;*/
+window.state = state;
 
-export let addPost = () => {
+export const addPost = () => {
     let newPost = {
         id: 4, message: state.profilePage.newPostText, likeCount: 0
     }
@@ -37,9 +39,19 @@ export let addPost = () => {
     rerenderEntireTree(state);
 }
 
-export let updateNewPostText = (newText) => {
+export const updateNewPostText = (newText) => {
     state.profilePage.newPostText = newText;
     rerenderEntireTree(state);
 }
 
+export const subscribe = (observer) => {
+    rerenderEntireTree = observer
+}
+
 export default state;
+/*1.render находится в index,но его нужно передать в state,но передать не можем т.к
+a)это будет цикл.зависимость
+b) index импортирует state. и смотри a)
+2.создали ф-ц subscribe с параметр observer,которая даёт себя на export и ждёт пока кто-то её пригласит
+3.эту ф-ц принимает в гости index и даёт ей подарочек в виде render
+4.subscribe возвращается домой c render(подарок-observer) и распаковывает его*/
