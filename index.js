@@ -1,6 +1,6 @@
 import React from 'react';
 import './index.css';
-import state, {addPost, subscribe, updateNewPostText} from "./redux/state";
+import store from "./redux/state";
 import ReactDOM from "react-dom";
 import {BrowserRouter} from "react-router-dom";
 import App from "./App";
@@ -9,16 +9,16 @@ import App from "./App";
 let rerenderEntireTree = (state) => {
     ReactDOM.render(
         <BrowserRouter>
-            <App state={state}
-                 addPost={addPost}
-                 updateNewPostText={updateNewPostText}/>
+            <App state={store.getState()}
+                 addPost={store.addPost.bind(store)}
+                 updateNewPostText={store.updateNewPostText.bind(store)}/>
         </BrowserRouter>, document.getElementById('root')
     );
 }
 /*рендер конец*/
-rerenderEntireTree(state);
+rerenderEntireTree(store.getState());
 
-subscribe(rerenderEntireTree);
+store.subscribe(rerenderEntireTree); // observer
 
 /*1.render находится в index,но его нужно передать в state,но передать не можем т.к
 a)это будет цикл.зависимость
