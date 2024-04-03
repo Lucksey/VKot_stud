@@ -11,7 +11,6 @@ import Settings from "./components/Settings/Settings";
 import Sidebar from "./components/Sidebar/Sidebar";
 
 const App = (props) => {
-
     return (
         <div className='app-wrapper'>
             <Header/>
@@ -21,8 +20,9 @@ const App = (props) => {
                     <Route path="/profile/*" element={<Profile
                         profilePage={props.state.profilePage}
                         dispatch={props.dispatch}/>}/>
+
                     <Route path="/dialogs/*" element={<Dialogs
-                        state={props.state.dialogsPage}/>}/>
+                        store={props.store}/>}/>
                     <Route path='/news/*' element={<News/>}/>
                     <Route path='/music/*' element={<Music/>}/>
                     <Route path='/settings/*' element={<Settings/>}/>
