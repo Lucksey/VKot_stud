@@ -1,7 +1,8 @@
 import React from "react";
 import s from "./Sidebar.module.css";
+import {NavLink} from "react-router-dom";
 
-const Sidebar = (props) => {
+const Sidebar = () => {
 
     let addAlert = () => {
         alert('samuraiJS.com');
@@ -13,7 +14,7 @@ const Sidebar = (props) => {
     }
 
     return <nav className={s.site}>
-        Search
+        <div className={s.item}><NavLink to='/users'>Search</NavLink></div>
         <div>
             <div>
                 <textarea id='new-search'></textarea>
