@@ -17,7 +17,7 @@ const MyPosts = (props) => {
     }
 
     return (<div className={s.postsBlock}>
-        <h3>My posts</h3>
+        <h3>My posts СТЕНА (последние посты сверху)</h3>
         <div>
             <div>
                 <textarea onChange={onPostChange} ref={newPostElement} value={props.newPostText}/>
