@@ -17,16 +17,13 @@ const MyPosts = (props) => {
     }
 
     return (<div className={s.postsBlock}>
-        <h3>My posts СТЕНА (последние посты сверху)</h3>
+        <h3>My posts</h3>{/*СТЕНА (последние посты сверху)*/}
         <div>
             <div>
                 <textarea onChange={onPostChange} ref={newPostElement} value={props.newPostText}/>
             </div>
             <div>
                 <button onClick={onAddPost}>Add post</button>
-            </div>
-            <div>
-                <button>Delete</button>
             </div>
         </div>
         <div className={s.posts}>
