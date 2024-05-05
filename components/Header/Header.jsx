@@ -4,7 +4,7 @@ import logotype from '../../assets/images/logoEye.png'
 const Header = () => {
     return (
         <header className={s.header}>
-        <img alt='imageLogotype' src={logotype}/>
+        <img alt='imageLogotype' title='это логотип получается' src={logotype}/>
     </header>
     )
 }

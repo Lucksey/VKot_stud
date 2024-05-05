@@ -1,6 +1,7 @@
 import React from "react";
 import s from "./Sidebar.module.css";
 import {NavLink} from "react-router-dom";
+import Preloader from "../Common/Preloader/Preloader";
 
 const Sidebar = () => {
 
@@ -26,6 +27,7 @@ const Sidebar = () => {
             <div>
                 Three friends bar
             </div>
+            <Preloader/>
         </div>
     </nav>
 }
