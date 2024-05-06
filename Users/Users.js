@@ -31,6 +31,9 @@ let Users = (props) => {
                         </NavLink>
                     </div>
                     <div>
+                        <NavLink className={s.userLink} to={'/profile/' + u.id} >Go to Profile</NavLink>
+                    </div>
+                    <div>
                         {u.followed
                             ? <button onClick={() => {
                                 props.unfollow(u.id)

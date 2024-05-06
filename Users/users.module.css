@@ -7,3 +7,13 @@
 .selectedPage {
 font-weight: bold;
 }
+
+
+.userLink:active,
+.userLink:focus {
+    color: gold;
+}
+
+.userLink {
+    color: whitesmoke;
+}

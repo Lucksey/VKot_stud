@@ -7,6 +7,7 @@ const ProfileInfo = (props) => {
     if (!props.profile) {
         return <Preloader/>
     }
+
     return (
         <div className={classes.content}>
             <img alt='BANNER' className={classes.big_banner}
