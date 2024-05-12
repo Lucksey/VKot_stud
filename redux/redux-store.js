@@ -12,7 +12,7 @@ const rootReducers = combineReducers({
     sidebar: sidebarReducer,
     usersPage: usersReducer,
     auth: authReducer,
-    repos: settingReducer
+    repos: settingReducer // использовал при изученни useSelector, useDispatch
 });
 
 const store = createStore(rootReducers);

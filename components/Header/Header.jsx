@@ -3,12 +3,13 @@ import s from './Header.module.css'
 import logotype from '../../assets/images/logoEye.png'
 import {NavLink} from "react-router-dom";
 
-const Header = () => {
+const Header = (props) => {
     return (
         <header className={s.header}>
         <img alt='imageLogotype' title='это логотип получается' src={logotype}/>
             <div className={s.loginBlock}>
-                <NavLink to={'/login'}>Login</NavLink>
+                {props.isAuth ? [props.email,' ', props.login]
+                    : <NavLink to={'/login'}>Login</NavLink>}
             </div>
     </header>
     )
