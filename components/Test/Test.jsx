@@ -2,7 +2,7 @@ import React from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {setCount} from "../../redux/setting-reducer";
 
-const Settings = () => {
+const Test = () => {
     const dispatch = useDispatch()
     const count = useSelector(state => state.repos.count)
 
@@ -12,11 +12,11 @@ const Settings = () => {
 
     return (
         <div>
-            <button onClick={onCountClick}>ЖМИ</button>
+            <button onClick={() => onCountClick()}>ЖМИ</button>
             <div>{count}</div>
         </div>
 
 )
 }
 
-export default Settings;
+export default Test;

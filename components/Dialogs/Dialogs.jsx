@@ -1,32 +1,19 @@
 import React from "react";
 import s from "./Dialogs.module.css";
+import {useGetDataDialogs} from './Dialogs.hooks'
+import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
-import DialogItem from "./DialogItem/DialogItem"
 
-const Dialogs = (props) => {
-    let state = props.dialogsPage;
-
-    let dialogsElements = state.dialogs.map(d => <DialogItem name={d.name} id={d.id}/>);
-    let messagesElements = state.messages.map(m => <Message message={m.message}/>);
-    let newMessageBody = state.newMessageBody;
-
-    let onSendMessageClick = () => {
-        props.sendMessage();
-    }
-
-    let onNewMessageChange = (e) => {
-        let body = e.target.value;
-        props.updateNewMessageBody(body);
-    }
-
+const Dialogs = () => {
+    const {dialogs, messages, newMessageBody, onNewMessageChange, onSendMessageClick}=useGetDataDialogs();// используем кастомный хук
     return (
         <div className={s.dialogs}>
             <div className={s.dialogsItems}>
-                {dialogsElements}
+                {dialogs.map(d => <DialogItem key={d.id} name={d.name} id={d.id}/>)}
             </div>
             <div className={s.messages}>
                 <div>ава пользователя и сообщения по разные стороны диалога</div>
-                <div>{messagesElements}</div>
+                <div>{messages.map(m => <Message key={m.id} message={m.message}/>)}</div>
                 <div>
                     <div><textarea value={newMessageBody}
                                    onChange={onNewMessageChange}
