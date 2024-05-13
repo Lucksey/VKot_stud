@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css'
 import Navbar from "./components/Navbar/Navbar";
-import UsersContainer from "./Users/UsersContainer";
+import UsersContainer from "./components/Users/UsersContainer";
 import News from "./components/News/News";
 import {Route, Routes} from "react-router-dom";
 import Music from "./components/Music/Music";
