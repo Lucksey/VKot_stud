@@ -1,3 +1,6 @@
+import {Dispatch} from "redux";
+import {usersAPI} from "../api/api";
+
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';
@@ -19,7 +22,7 @@ let initialState = {
 const usersReducer = (state = initialState, action) => {
 
     switch (action.type) {
-        //Reducers//
+        //Reducers
         case FOLLOW:
             return {
                 ... state,
@@ -64,13 +67,13 @@ const usersReducer = (state = initialState, action) => {
                     : state.followingInProgress.filter(id => id != action.userId)// если false создаем новый массив с помощью фильтрации. Фильтрация вернет новый объект массива
             }
         }
-//Reducers//
+//Reducers
         default:
             return state;
     }
 }
 
-//ActionCreators//
+//ActionCreators
 export const follow = (userId) => ({type:  FOLLOW, userId})
 export const unfollow = (userId) => ({type: UNFOLLOW, userId})
 export const setUsers = (users) => ({type:SET_USERS,users})
@@ -78,6 +81,21 @@ export const setCurrentPage = (currentPage) => ({type:SET_CURRENT_PAGE, currentP
 export const setTotalUsersCount = (totalUsersCount) => ({type:SET_TOTAL_USERS_COUNT, count: totalUsersCount })
 export const toggleIsFetching = (isFetching) => ({type:TOGGLE_IS_FETCHING, isFetching })
 export const toggleFollowingProgress = (isFetching, userId) => ({type: TOGGLE_IS_FOLLOWING_PROGRESS, isFetching, userId})
+
+//ThunkCreators
+export const getUsers = (currentPage, pageSize) => {
+    return (Dispatch) => {
+        Dispatch(toggleIsFetching(true));
+        usersAPI.getUsers(currentPage, pageSize)
+            .then(data => {
+                Dispatch(toggleIsFetching(false));
+                Dispatch(setUsers(data.items));
+                Dispatch(setTotalUsersCount(data.totalCount));
+                Dispatch(setCurrentPage(currentPage));
+            });
+    }
+}
+
 
 
 export default usersReducer;
