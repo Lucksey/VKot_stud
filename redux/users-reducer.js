@@ -1,4 +1,5 @@
 import {usersAPI} from "../api/api";
+import {setAuthUserData} from "./auth-reducer";
 
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
@@ -10,12 +11,7 @@ const TOGGLE_IS_FOLLOWING_PROGRESS = 'TOGGLE_IS_FOLLOWING_PROGRESS';
 
 
 let initialState = {
-    users: [],
-    pageSize: 50,
-    totalUsersCount: 0,
-    currentPage: 1,
-    isFetching: true,
-    followingInProgress: []
+    users: [], pageSize: 50, totalUsersCount: 0, currentPage: 1, isFetching: true, followingInProgress: []
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -24,8 +20,7 @@ const usersReducer = (state = initialState, action) => {
         //Reducers
         case FOLLOW:
             return {
-                ...state,
-                users: state.users.map(u => {
+                ...state, users: state.users.map(u => {
                     if (u.id === action.userId) {
                         return {...u, followed: true}
                     }
@@ -34,8 +29,7 @@ const usersReducer = (state = initialState, action) => {
             }
         case UNFOLLOW:
             return {
-                ...state,
-                users: state.users.map(u => {
+                ...state, users: state.users.map(u => {
                     if (u.id === action.userId) {
                         return {...u, followed: false}
                     }
@@ -56,8 +50,7 @@ const usersReducer = (state = initialState, action) => {
         }
         case TOGGLE_IS_FOLLOWING_PROGRESS: {
             return {
-                ...state,
-                followingInProgress: action.isFetching// тернарное выражение
+                ...state, followingInProgress: action.isFetching// тернарное выражение
                     ? [...state.followingInProgress, action.userId] //если true фильтрацию не делаем, деструктуризируем массив и в конец дописываем userID, которая приходит к нам в action
                     : state.followingInProgress.filter(id => id != action.userId)// если false создаем новый массив с помощью фильтрации. Фильтрация вернет новый объект массива
             }
@@ -76,9 +69,7 @@ export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, current
 export const setTotalUsersCount = (totalUsersCount) => ({type: SET_TOTAL_USERS_COUNT, count: totalUsersCount})
 export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})
 export const toggleFollowingProgress = (isFetching, userId) => ({
-    type: TOGGLE_IS_FOLLOWING_PROGRESS,
-    isFetching,
-    userId
+    type: TOGGLE_IS_FOLLOWING_PROGRESS, isFetching, userId
 })
 
 //ThunkCreators
@@ -118,6 +109,16 @@ export const unfollow = (userId) => {
             });
     }
 }
-
+export const authUser = (userId, login, email) => {
+    return (Dispatch) => {
+        usersAPI.authUser(userId, login, email)
+            .then(data => {
+                if (data.resultCode === 0) {
+                    let {userId, login, email} = data.data;
+                    Dispatch(setAuthUserData(userId, login, email));
+                }
+            });
+    }
+}
 
 export default usersReducer;
