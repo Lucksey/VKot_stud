@@ -7,7 +7,7 @@ let initialState = {
     id: null,
     login: null,
     email: null,
-    isFetching: true,
+    isFetching: false,
     isAuth: false
 };
 
