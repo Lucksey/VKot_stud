@@ -1,6 +1,8 @@
+import {usersAPI} from "../api/api";
+
 const ADD_POST = 'ADD_POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT';
-const SET_USER_PROFILE  = 'SET_USER_PROFILE';
+const SET_USER_PROFILE = 'SET_USER_PROFILE';
 
 let initialState = {
     posts: [{id: 1, message: 'Hi! How are you?', likeCount: 2},
@@ -38,7 +40,12 @@ const profileReducer = (state = initialState, action) => {
 }
 
 export const addPost = () => ({type: ADD_POST})                                     //ActionCreator
-export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile})
+export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile})      //ActionCreator
+export const getUserProfile = (userId) => (dispatch) => {
+    usersAPI.getProfile(userId).then(response => {
+        dispatch(setUserProfile(response.data));
+    });
+}                                                                                   //ThunkCreator
 export const updateNewPostText = (text) =>                                          //ActionCreator
     ({type: UPDATE_NEW_POST_TEXT, newText: text})
 
