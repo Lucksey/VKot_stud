@@ -18,18 +18,12 @@ export const usersAPI = {
             });
     },
 
-    unfollowUser(id) {
-        return instance.delete(`follow/${id}`)
-            .then(responce => {
-                return responce.data;
-            });
+    unfollowUser(userId) {
+        return instance.delete(`follow/${userId}`)
     },
 
-    followUser(id) {
-        return instance.post(`follow/${id}`)
-            .then(responce => {
-                return responce.data;
-            });
+    followUser(userId) {
+        return instance.post(`follow/${userId}`)
     },
 
     authUser() {

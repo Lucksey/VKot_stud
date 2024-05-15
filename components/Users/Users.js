@@ -2,33 +2,8 @@ import React from "react"
 import s from "./users.module.css"
 import userPhoto from '../../assets/images/user.png'
 import {NavLink} from "react-router-dom";
-import {usersAPI} from "../../api/api";
-import {toggleFollowingProgress} from "../../redux/users-reducer";
 
 let Users = (props) => {
-
-    const handleUnfollow = (userId) => { // если в props значение followingInProgress будет true, то кнобка будет отключена
-        props.toggleFollowingProgress(true, userId);
-        usersAPI.unfollowUser(userId)
-            .then(data => {
-                if (data.resultCode == 0) {
-                    props.unfollow(userId);
-                }
-                props.toggleFollowingProgress(false, userId);
-            });
-    }
-
-    const handleFollow = (userId) => { // если в props значение followingInProgress будет true, то кнобка будет отключена
-        props.toggleFollowingProgress(true, userId);
-        usersAPI.followUser(userId)
-            .then(data => {
-                if (data.resultCode == 0) {
-                    props.follow(userId);
-                }
-                props.toggleFollowingProgress(false, userId);
-            });
-
-    }
 
 
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -63,7 +38,7 @@ let Users = (props) => {
                     <div>
                         <button disabled={props.followingInProgress.some(id => id === u.id)}
                                 onClick={() => {
-                                    u.followed ? handleUnfollow(u.id) : handleFollow(u.id)
+                                    u.followed ? props.unfollow(u.id) : props.follow(u.id)
                                 }}>{u.followed ? 'Unfollow' : 'Follow'}</button>
                     </div>
                 </div>

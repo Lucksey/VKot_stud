@@ -1,16 +1,17 @@
 import React from "react";
 import {connect} from "react-redux";
 import {
-    follow, getUsers,
+    follow,
+    getUsers,
     setCurrentPage,
     setTotalUsersCount,
-    setUsers, toggleFollowingProgress,
+    setUsers,
+    toggleFollowingProgress,
     toggleIsFetching,
     unfollow
 } from "../../redux/users-reducer";
 import Users from "./Users";
 import Preloader from "../Common/Preloader/Preloader";
-import {usersAPI} from "../../api/api";
 
 class UsersContainer extends React.Component {
     componentDidMount() {
@@ -31,7 +32,6 @@ class UsersContainer extends React.Component {
                    users={this.props.users}
                    follow={this.props.follow}
                    unfollow={this.props.unfollow}
-                   toggleFollowingProgress={this.props.toggleFollowingProgress}
                    followingInProgress={this.props.followingInProgress}
             />
         </>
