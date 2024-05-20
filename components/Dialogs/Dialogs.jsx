@@ -1,8 +1,9 @@
 import React from "react";
 import s from "./Dialogs.module.css";
-import {useGetDataDialogs} from './Dialogs.hooks'
+import {useGetDataDialogs} from './Dialogs.hoс'
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
+import {withAuthNavigate} from "../../hoc/withAuthNavigate";
 
 const Dialogs = () => {
     const {dialogs, messages, newMessageBody, onNewMessageChange, onSendMessageClick}=useGetDataDialogs();// используем кастомный хук
@@ -27,4 +28,4 @@ const Dialogs = () => {
     )
 }
 
-export default Dialogs;
+export default withAuthNavigate(Dialogs);
