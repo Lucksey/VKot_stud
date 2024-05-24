@@ -1,5 +1,5 @@
 import {useDispatch, useSelector} from "react-redux";
-import {sendMessage, updateNewMessageBody} from "../../redux/dialogs-reducer";
+import {sendMessage} from "../../redux/dialogs-reducer";
 import React from 'react';
 
 export const useGetDataDialogs=()=>{
@@ -8,19 +8,12 @@ export const useGetDataDialogs=()=>{
 
     let newMessageBody = dialogsPage.newMessageBody;
 
-    let onSendMessageClick = () => {
-        dispatch(sendMessage());
+    let onSendMessageClick = (newMessageBody) => {
+        dispatch(sendMessage(newMessageBody));
     }
-
-    let onNewMessageChange = (e) => {
-        let body = e.target.value;
-        dispatch(updateNewMessageBody(body));
-    }
-
 
   return {
       onSendMessageClick,
-      onNewMessageChange,
       dialogs: dialogsPage.dialogs,
       messages: dialogsPage.messages,
       newMessageBody

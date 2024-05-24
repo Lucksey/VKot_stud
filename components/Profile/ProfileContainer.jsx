@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Profile from "./Profile";
-import {connect} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {getStatus, getUserProfile, updateStatus} from "../../redux/profile-reducer";
-import {Navigate, useParams} from "react-router-dom";
+import {useParams} from "react-router-dom";
 import {withAuthNavigate} from "../../hoc/withAuthNavigate";
 import {compose} from "redux";
 
@@ -13,33 +13,32 @@ export function withRouter(Children) {
     }
 }
 
-class ProfileContainer extends React.Component {
-
-    componentDidMount() {
-        let userId = this.props.match.params.userId || 31104;
-        this.props.getUserProfile(userId);
-        this.props.getStatus(userId);
+const ProfileContainer = (props) => {
+    const dispatch = useDispatch()
+    const {profile, status} = useSelector(state => state.profilePage)
+    const onGetStatus = (userId) => {
+        dispatch(getStatus(userId))
     }
 
-    render() {
-        return (
-            <Profile {...this.props} profile={this.props.profile} status={this.props.status} updateStatus={this.props.updateStatus}/>
-        )
+    const onGetUserProfile = (userId) => {
+        dispatch(getUserProfile(userId))
     }
+
+    const onUpdateStatus = (data) => {
+        dispatch(updateStatus(data))
+    }
+
+    useEffect(() => {
+        let userId = props.match.params.userId || 31104;
+        onGetUserProfile(userId)
+        onGetStatus(userId)
+    }, [])
+
+    return (
+        <Profile profile={profile} status={status} updateStatus={onUpdateStatus}/>
+    )
 }
-
-//let AuthNavigateComponent = withAuthNavigate(ProfileContainer);
-
-let mapStateToProps = (state) => ({
-    profile: state.profilePage.profile,
-    status: state.profilePage.status
-});
-
-//const WhitsUrlDataContainerComponent = withRouter(AuthNavigateComponent);
-//export default connect(mapStateToProps, {getUserProfile, getStatus, updateStatus})(WhitsUrlDataContainerComponent);
-
 export default compose(
- connect(mapStateToProps, {getUserProfile, getStatus, updateStatus}),
     withRouter,
     withAuthNavigate
-) (ProfileContainer);
+)(ProfileContainer);

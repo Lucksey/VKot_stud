@@ -4,9 +4,10 @@ import {useGetDataDialogs} from './Dialogs.hoс'
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
 import {withAuthNavigate} from "../../hoc/withAuthNavigate";
+import {useForm} from "react-hook-form";
 
 const Dialogs = () => {
-    const {dialogs, messages, newMessageBody, onNewMessageChange, onSendMessageClick}=useGetDataDialogs();// используем кастомный хук
+    const {dialogs, messages, newMessageBody, onNewMessageChange, onSendMessageClick} = useGetDataDialogs();// используем кастомный хук
     return (
         <div className={s.dialogs}>
             <div className={s.dialogsItems}>
@@ -15,17 +16,28 @@ const Dialogs = () => {
             <div className={s.messages}>
                 <div>ава пользователя и сообщения по разные стороны диалога</div>
                 <div>{messages.map(m => <Message key={m.id} message={m.message}/>)}</div>
-                <div>
-                    <div><textarea value={newMessageBody}
-                                   onChange={onNewMessageChange}
-                                   placeholder='Enter your message'></textarea></div>
-                    <div>
-                        <button onClick={onSendMessageClick}>Send</button>
-                    </div>
-                </div>
+                <AddMessageForm onSendMessageClick={onSendMessageClick}/>
             </div>
         </div>
     )
 }
+
+const AddMessageForm = (props) => {
+
+    const {register, handleSubmit, reset} = useForm();
+
+    let onSubmit = (data) => {
+        props.onSendMessageClick(data.newMessageBody)
+        reset()
+    }
+
+    return (
+        <form onSubmit={handleSubmit(onSubmit)}>
+            <input placeholder='Enter your message' {...register("newMessageBody") }/>
+            <input type="submit" />
+        </form>
+    )
+}
+
 
 export default withAuthNavigate(Dialogs);
