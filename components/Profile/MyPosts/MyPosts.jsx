@@ -20,15 +20,16 @@ const MyPosts = (props) => {
 
 const AddNewPostForm = (props) => {
     const { register, handleSubmit, reset } = useForm();
-
     let onSubmit = (data) => {
-        props.onSubmit(data.newPostText)
-        reset()
+        if (data.newPostText) {
+            props.onSubmit(data.newPostText)
+            reset()
+        }
     }
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
-            <input placeholder='input bukvЫ' {...register("newPostText") } />
+            <input placeholder='input bukvЫ'  {...register("newPostText") } />
             <input type="submit" />
         </form>
     )

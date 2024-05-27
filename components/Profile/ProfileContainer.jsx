@@ -16,6 +16,7 @@ export function withRouter(Children) {
 const ProfileContainer = (props) => {
     const dispatch = useDispatch()
     const {profile, status} = useSelector(state => state.profilePage)
+
     const onGetStatus = (userId) => {
         dispatch(getStatus(userId))
     }

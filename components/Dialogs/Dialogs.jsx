@@ -7,7 +7,7 @@ import {withAuthNavigate} from "../../hoc/withAuthNavigate";
 import {useForm} from "react-hook-form";
 
 const Dialogs = () => {
-    const {dialogs, messages, newMessageBody, onNewMessageChange, onSendMessageClick} = useGetDataDialogs();// используем кастомный хук
+    const {dialogs, messages, onSendMessageClick} = useGetDataDialogs();
     return (
         <div className={s.dialogs}>
             <div className={s.dialogsItems}>
