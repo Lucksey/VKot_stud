@@ -10,7 +10,6 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Dialogs from "./components/Dialogs/Dialogs";
-import Login from "./components/Login/Login";
 import LoginPage from "./components/Login/Login";
 
 const App = () => {

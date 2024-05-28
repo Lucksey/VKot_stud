@@ -24,10 +24,10 @@ const Sidebar = () => {
                 <button onClick={addAlertTextArea}>alertTextArea</button>
                 <button onClick={addAlert}>samurai</button>
             </div>
-            <div>
-                Three friends bar
-            </div>
             <Preloader/>
+            <div>
+                <img src={'https://media.giphy.com/media/9TtwPvGwQB8QM/giphy.gif'}/>
+            </div>
         </div>
     </nav>
 }

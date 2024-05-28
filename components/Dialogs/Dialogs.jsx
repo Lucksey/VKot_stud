@@ -33,8 +33,8 @@ const AddMessageForm = (props) => {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
-            <input placeholder='Enter your message' {...register("newMessageBody") }/>
-            <input type="submit" />
+            <input placeholder='Enter your message' {...register("newMessageBody")}/>
+            <input type="submit"/>
         </form>
     )
 }

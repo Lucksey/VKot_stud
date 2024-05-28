@@ -6,7 +6,7 @@ import {NavLink} from "react-router-dom";
 let Users = (props) => {
 
 
-    let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
+    let pagesCount = Math.ceil(props.totalCount / props.pageSize);
 
     let pages = [];
     for (let i = 1; i <= pagesCount; i++) {
@@ -31,10 +31,10 @@ let Users = (props) => {
                                  className={s.userPhoto}/>
                         </NavLink>
                     </div>
-                    <div>
+                    {/*<div>
                         <NavLink className={s.userLink} to={'/profile/' + u.id}>
                             Go to Profile</NavLink>
-                    </div>
+                    </div>*/}
                     <div>
                         <button disabled={props.followingInProgress.some(id => id === u.id)}
                                 onClick={() => {
