@@ -6,12 +6,11 @@ import {useGetDataMyPost} from "./MyPosts.hoc";
 
 const MyPosts = (props) => {
 
-
     const {posts, onAddPostClick} = useGetDataMyPost();
 
     return (
         <div className={s.postsBlock}>
-            <h3>My posts</h3>{/*СТЕНА (последние посты сверху)*/}
+            <h3>My posts</h3>
             <div>
                 <AddNewPostForm onSubmit={onAddPostClick}/>
             </div>

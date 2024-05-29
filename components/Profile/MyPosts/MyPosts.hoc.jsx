@@ -12,7 +12,6 @@ export const useGetDataMyPost = () => {
 
     return {
         posts: profilePage.posts,
-        newPostText: profilePage.newPostText,
         onAddPostClick,
     }
 }

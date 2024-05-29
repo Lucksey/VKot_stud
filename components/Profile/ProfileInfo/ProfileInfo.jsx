@@ -4,6 +4,7 @@ import headerLogo from "../../../assets/images/beach.webp";
 import Preloader from "../../Common/Preloader/Preloader";
 import ProfileStatus from "./ProfileStatus";
 import {updateStatus} from "../../../redux/profile-reducer";
+import ProfileStatusWithHooks from "./ProfileStatus.Hook";
 
 const ProfileInfo = (props) => {
     if (!props.profile) { // если НЕ профиль, то прелоадер
@@ -16,7 +17,7 @@ const ProfileInfo = (props) => {
                  src={headerLogo}/>
             <div className={classes.descritpionBlock}>
                 <img src={props.profile.photos.large} />
-                <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
+                <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus}/>
                 <br/>
                 Name: {props.profile.fullName} <br/>
                 Обо мне: {props.profile.aboutMe} <br/>
