@@ -4,11 +4,6 @@
     border-radius: 51%;
 }
 
-.selectedPage {
-font-weight: bold;
-}
-
-
 .userLink:active,
 .userLink:focus {
     color: gold;

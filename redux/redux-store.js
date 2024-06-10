@@ -6,6 +6,7 @@ import usersReducer from "./users-reducer";
 import authReducer from "./auth-reducer";
 import settingReducer from "./setting-reducer";
 import {thunk} from "redux-thunk";
+import appReducer from "./app-reducer";
 
 const rootReducers = combineReducers({
     profilePage: profileReducer,
@@ -13,6 +14,7 @@ const rootReducers = combineReducers({
     sidebar: sidebarReducer,
     usersPage: usersReducer,
     auth: authReducer,
+    app: appReducer,
     repos: settingReducer // использовал при изученни useSelector, useDispatch
 });
 

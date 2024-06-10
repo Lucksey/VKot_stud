@@ -4,7 +4,7 @@ import Post from "./Post/Post";
 import {useForm} from "react-hook-form";
 import {useGetDataMyPost} from "./MyPosts.hoc";
 
-const MyPosts = (props) => {
+const MyPosts = React.memo(props => {
 
     const {posts, onAddPostClick} = useGetDataMyPost();
 
@@ -20,7 +20,7 @@ const MyPosts = (props) => {
             </div>
         </div>
     )
-}
+})
 
 const AddNewPostForm = (props) => {
 

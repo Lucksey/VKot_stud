@@ -1,4 +1,5 @@
 import React from "react";
+// неиспользуемый файл целиком. оставлен для примера. рабочий файл - ProfileStatus.Hook
 
 class ProfileStatus extends React.Component {
 

@@ -25,6 +25,7 @@ import {
 
 class UsersContainer extends React.Component {
     componentDidMount() {
+
         this.props.getUsers(this.props.currentPage, this.props.pageSize);
     }
 
@@ -47,17 +48,6 @@ class UsersContainer extends React.Component {
         </>
     }
 }
-
-/*let mapStateToProps = (state) => {
-    return {
-        users: state.usersPage.users,
-        pageSize: state.usersPage.pageSize,
-        totalCount: state.usersPage.totalCount,
-        currentPage: state.usersPage.currentPage,
-        isFetching: state.usersPage.isFetching,
-        followingInProgress:  state.usersPage.followingInProgress
-    }
-}*/
 
 let mapStateToProps = (state) => {
     return {
