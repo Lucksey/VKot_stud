@@ -2,11 +2,11 @@
     color: palegreen;
 }
 
-button {
+.button {
     border-radius: 10px;
 }
 
-textarea {
+.textarea {
     border-radius: 5px;
     margin: 1%;
 }
