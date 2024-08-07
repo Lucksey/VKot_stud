@@ -8,7 +8,7 @@ import settingReducer from "./setting-reducer";
 import {thunk} from "redux-thunk";
 import appReducer from "./app-reducer";
 
-const rootReducers = combineReducers({
+const rootReducer = combineReducers({
     profilePage: profileReducer,
     dialogsPage: dialogsReducer,
     sidebar: sidebarReducer,
@@ -16,14 +16,17 @@ const rootReducers = combineReducers({
     auth: authReducer,
     app: appReducer,
     repos: settingReducer // использовал при изученни useSelector, useDispatch
-});
+})
 
+type RootReducerType = typeof rootReducer
+export type AppStateType = ReturnType<RootReducerType>
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(rootReducers, composeEnhancers(applyMiddleware(thunk)));
+// @ts-ignore
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)))
 
-/*const store = createStore(rootReducers, applyMiddleware(thunk)); */// без DevTools для  Chrome
+/*const store = createStore(rootReducer, applyMiddleware(thunk)) */// без DevTools для  Chrome
+// @ts-ignore
+window.__store__ = store
 
-window.__store__ = store;
-
-export default store;
+export default store

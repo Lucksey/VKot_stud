@@ -25,9 +25,6 @@ const Sidebar = () => {
                 <button onClick={addAlert}>samurai</button>
             </div>
             <Preloader/>
-            <div>
-                <img src={'https://media.giphy.com/media/9TtwPvGwQB8QM/giphy.gif'}/>
-            </div>
         </div>
     </nav>
 }

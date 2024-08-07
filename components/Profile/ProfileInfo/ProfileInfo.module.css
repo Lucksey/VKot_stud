@@ -13,6 +13,21 @@
     border-radius: 30px;
 }
 
-.descritpionBlock {
+.descriptionBlock  {
     padding: 10px;
+
+}
+
+.userPhoto {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-top: -105px;
+    margin-left: 10px;
+    border: 2px solid blanchedalmond;
+
+}
+
+.contact {
+    padding-left: 10px;
 }

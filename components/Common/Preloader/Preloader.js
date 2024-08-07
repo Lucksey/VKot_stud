@@ -3,7 +3,7 @@ import React from "react";
 
 let Preloader = (props) => {
     return <div>
-        <img alt='динозавр еще не прибежал' title='бегу, несу список' src={preloader}/>
+        <img alt='Loading...' title='бегу, несу список' src={preloader}/>
     </div>
 }
 export default Preloader;

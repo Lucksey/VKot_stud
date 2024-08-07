@@ -2,11 +2,22 @@ import React, {useState} from "react"
 import s from "./Pagination.module.css"
 import cn from 'classnames'
 
-let Pagination = ({totalCount, currentPage, onPageChanged, pageSize, portionSize = 10}) => {
+type PropsType = {
+    totalCount: number
+    currentPage: number
+    onPageChanged: (pageNumber:number) => void
+    pageSize: number
+    portionSize?: number }
+
+let Pagination: React.FC<PropsType> = ({totalCount,
+                                           currentPage,
+                                           onPageChanged,
+                                           pageSize,
+                                           portionSize = 10}) => {
 
     let pagesCount = Math.ceil(totalCount / pageSize);
 
-    let pages = [];
+    let pages: Array<number> = [];
     for (let i = 1; i <= pagesCount; i++) {
         pages.push(i)}
 
@@ -33,7 +44,7 @@ let Pagination = ({totalCount, currentPage, onPageChanged, pageSize, portionSize
                              }}>{p}</span>
             })}
 
-        {//portionNumber > portionNumber &&
+        {//portionCount > portionNumber &&
             <button onClick={() => {
                 setPortionNumber(portionNumber + 1)
             }}>NEXT</button>}

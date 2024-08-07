@@ -1,6 +1,6 @@
 .pageNumber {
     padding: 2px;
-    border: 1px solid grey;
+    border: 1px solid darkgrey;
 }
 
 .pagination {
@@ -9,5 +9,6 @@
 
 .pageNumber.selectedPage {
     font-weight: bold;
-    border-color: black;
+    border-color: palegreen;
+
 }
